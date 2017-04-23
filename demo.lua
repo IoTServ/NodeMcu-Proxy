@@ -30,16 +30,16 @@ conn:on("receive", function(conn, pl)
         buf = buf.."<p>GPIO2 <a href=\"?pin=ON2\"><button>ON</button></a> <a href=\"?pin=OFF2\"><button>OFF</button></a></p>"..'<h3>Raw Data To MCU:</h3><br>'..pl;
         local _on,_off = "",""  
         if(_GET.pin == "ON1")then  
-            gpio.write(led1, gpio.HIGH);
+            gpio.write(led1, gpio.LOW);
 			print('on led1')
         elseif(_GET.pin == "OFF1")then  
-            gpio.write(led1, gpio.LOW);
+            gpio.write(led1, gpio.HIGH);
 			print('off led1')
         elseif(_GET.pin == "ON2")then  
-            gpio.write(led2, gpio.HIGH);
+            gpio.write(led2, gpio.LOW);
 			print('on led2')
         elseif(_GET.pin == "OFF2")then  
-            gpio.write(led2, gpio.LOW);
+            gpio.write(led2, gpio.HIGH);
 			print('off led2')
         end
 		conn:send(buf); 
